@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Ganador o Perdedor</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+        }
+        #resultado {
+            font-size: 2em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .ganador {
+            color: green;
+        }
+        .perdedor {
+            color: red;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Haz clic para ver tu suerte</h1>
+    <button onclick="determinarResultado()">¡Hacer clic!</button>
+    <p id="resultado">Esperando resultado...</p>
+
+    <script>
+        function determinarResultado() {
+            // Genera un número aleatorio entre 0 y 1
+            const numeroAleatorio = Math.random(); 
+            const elementoResultado = document.getElementById('resultado'); // Selecciona el párrafo donde mostrar el resultado
+
+            // Si el número es menor a 0.5, es "Perdedor"; de lo contrario, es "Ganador"
+            if (numeroAleatorio < 0.5) {
+                elementoResultado.textContent = "¡Perdedor! ☹️";
+                elementoResultado.className = "perdedor"; // Aplica estilo CSS para perdedor
+            } else {
+                elementoResultado.textContent = "¡Ganador! 🎉";
+                elementoResultado.className = "ganador"; // Aplica estilo CSS para ganador
+            }
+        }
+    </script>
+</body>
+</html>
